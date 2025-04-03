@@ -1,1 +1,7 @@
-<p>todos works!</p>
+<!-- <p>todos works!</p>
+<p>{{ todoService.todoItems[0].title }}</p>
+<p>{{ todoItems()[0].title }}</p> -->
+
+@for (todo of todoItems(); track todo.id){
+<p>{{ todo.title }}</p>
+}
