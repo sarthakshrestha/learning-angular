@@ -6,12 +6,20 @@
 
 <!-- <p *ngIf="!todoItems().length">No todo items available</p> -->
 
+<form>
+  <label>Filter todo</label>
+  <input
+    name="searchTerm"
+    [(ngModel)]="searchTerm"
+    placeholder="Search todos"
+  />
+</form>
 @if(!todoItems().length){
 <p>No todo items available</p>
 }
 
 <ul class="todos">
-  @for (todo of todoItems(); track todo.id){
+  @for (todo of todoItems() | filterTodos: searchTerm(); track todo.id){
   <app-todo-item (todoToggled)="updateTodoItem($event)" [todo]="todo" />
 
   }
