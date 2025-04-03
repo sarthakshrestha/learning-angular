@@ -2,6 +2,13 @@
 <p>{{ todoService.todoItems[0].title }}</p>
 <p>{{ todoItems()[0].title }}</p> -->
 
-@for (todo of todoItems(); track todo.id){
-<p>{{ todo.title }}</p>
-}
+<h3>Todos List</h3>
+
+<ul>
+  @for (todo of todoItems(); track todo.id){
+  <li class="todos__item">
+    <input id="todo-{{ todo.id }}" type="checkbox" [value]="todo.completed" />
+    <label for="todo-{{ todo.id }}">{{ todo.title }}</label>
+  </li>
+  }
+</ul>
